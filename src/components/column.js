@@ -15,28 +15,24 @@ export default class Column extends React.Component {
   }
 
   render() {
-
+    console.log("props", this.props);
     const propertyLocales = this._propertyLocales();
     
     return(
       <div className="locale">
-        <h4>{this.props.identity.language}</h4>  
+        <h4>{this.props.propertyName}</h4>  
         {propertyLocales}
       </div>
     );
   }
 
   _propertyLocales(){
-    const locales = [];
-    // console.log(this.state);
-    for (let key in this.state.locales){
-      locales.push(
-        <div className="property" key={key}>
-          <p>{key} : {this.props.propertyLocales[key]}</p>
-        </div>
-      );
-    }
-    return locales;
+    console.log(this.props, "props");
+    return this.props.propertyLocales.map((columnLocale)=>{
+      <div className="delimiter" key={columnLocale.locale}>
+          <p>{columnLocale.locale} : {columnLocale.delimiter}</p>
+      </div>
+    });
   }
 
 }

@@ -24,7 +24,7 @@ export default class Page extends React.Component {
 
   render(){
     const locales = this._getLocales() || [];
-    // const columns = this._getColumns() || [];
+    const columnNodes = this._getColumns() || [];
     let allData;
     if (this.state.displayOutput){
       allData = <div className="allData">{locales}</div>
@@ -38,6 +38,7 @@ export default class Page extends React.Component {
           <div className="btn btn-danger col-md-4">Delete column</div>
         </div>
         <SearchBar addColumn={this._addColumn}/>
+        {columnNodes}
 
         <br />
         <div className="btn btn-info btn-sm" onClick={this._toggleDisplay}>{toggleDisplayText}</div>
@@ -60,7 +61,7 @@ export default class Page extends React.Component {
       if (locale.delimiters.hasOwnProperty(property)) {
         propertyLocales.push({
           locale: locale.identity.language,
-          delimiter: locale.delimiters.property
+          delimiter: locale.delimiters[property]
         });
       }
     })
