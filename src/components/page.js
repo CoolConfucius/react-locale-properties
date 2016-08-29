@@ -15,6 +15,7 @@ export default class Page extends React.Component {
 
     this._toggleDisplay = this._toggleDisplay.bind(this);
     this._addColumn = this._addColumn.bind(this);
+    this._deleteColumn = this._deleteColumn.bind(this);
     this._getColumnLocales = this._getColumnLocales.bind(this);
     this._getColumns = this._getColumns.bind(this);
   }
@@ -33,11 +34,7 @@ export default class Page extends React.Component {
     let toggleDisplayText = this.state.displayOutput ? 'Hide Data' : 'Show All Available Data';
     return(
       <div className="page container">
-        Locale Props
-        <div className="row">
-          <div className="btn btn-success col-md-4">Add new column</div>
-          <div className="btn btn-danger col-md-4">Delete column</div>
-        </div>
+        Locale Props        
         <SearchBar addColumn={this._addColumn}/>
         <div className="row">
           {columnNodes}
@@ -92,6 +89,15 @@ export default class Page extends React.Component {
                onDelete={this._deleteColumn}
                key={column.propertyName || ''} />
     });
+  }
+
+
+  _deleteColumn(columnProperty) {
+    const columns = this.state.columns.filter(
+      column => column.propertyName !== columnProperty
+    );
+
+    this.setState({ columns });
   }
 
 

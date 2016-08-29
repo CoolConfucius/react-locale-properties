@@ -8,7 +8,6 @@ export default class SearchBar extends React.Component {
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
-    this._quickSearch = this._quickSearch.bind(this);
   }
 
   render() {
@@ -16,11 +15,11 @@ export default class SearchBar extends React.Component {
       <form className="comment-form" onSubmit={this._handleSubmit}>
         <label>Enter property</label>
         <div className="comment-form-fields">
-          <input placeholder="Property Name:" ref={c => this._inputProperty = c} onChange={this._quickSearch}/>
+          <input placeholder="Property Name:" ref={c => this._inputProperty = c} />
         </div>
         <div className="comment-form-actions">
-          <button type="submit">
-            Search
+          <button className="btn btn-success" type="submit">
+            Add New Column
           </button>
         </div>
       </form>
@@ -35,7 +34,4 @@ export default class SearchBar extends React.Component {
     this._inputProperty.value = '';
   }
 
-  _quickSearch() {    
-
-  }
 }

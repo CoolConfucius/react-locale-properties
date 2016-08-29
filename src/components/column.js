@@ -8,6 +8,7 @@ export default class Column extends React.Component {
     };
 
     this._propertyLocales = this._propertyLocales.bind(this);
+    this._handleDelete = this._handleDelete.bind(this);
   }
 
   componentWillMount(){
@@ -22,6 +23,9 @@ export default class Column extends React.Component {
       <div className="col-md-3 col-xs-6">
         <h4>{this.props.propertyName}</h4>  
         {propertyLocales}
+        <div className="btn btn-small btn-danger" onClick={this._handleDelete}>
+          <span className="glyphicon glyphicon-trash"></span>
+        </div>
       </div>
     );
   }
@@ -38,6 +42,13 @@ export default class Column extends React.Component {
         {propertyLocalesMap}
       </div>
     );
+  }
+
+  _handleDelete(event) {
+    console.log("props", this.props);
+    event.preventDefault();
+
+    this.props.onDelete(this.props.propertyName);
   }
 
 }
