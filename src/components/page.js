@@ -108,13 +108,7 @@ export default class Page extends React.Component {
     this.setState({ columns });
   }
 
-  _dedupeValue(columnProperty, locale) {
-    const columnLocales = this.state.columns.filter(
-      column => column.propertyName !== locale
-    );
-
-    this.setState({ columns });
-  }
+  
 
 
   _getLocales() {
