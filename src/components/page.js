@@ -16,6 +16,7 @@ export default class Page extends React.Component {
     this._toggleDisplay = this._toggleDisplay.bind(this);
     this._addColumn = this._addColumn.bind(this);
     this._getColumnLocales = this._getColumnLocales.bind(this);
+    this._getColumns = this._getColumns.bind(this);
   }
 
   componentWillMount() {
