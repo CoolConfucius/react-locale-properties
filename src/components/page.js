@@ -39,7 +39,7 @@ export default class Page extends React.Component {
         <div className="row">
           {columnNodes}
         </div>
-
+        <br />
         <br />
         <div className="btn btn-info btn-sm" onClick={this._toggleDisplay}>{toggleDisplayText}</div>
         {allData}
@@ -103,6 +103,14 @@ export default class Page extends React.Component {
   _deleteColumn(columnProperty) {
     const columns = this.state.columns.filter(
       column => column.propertyName !== columnProperty
+    );
+
+    this.setState({ columns });
+  }
+
+  _dedupeValue(columnProperty, locale) {
+    const columnLocales = this.state.columns.filter(
+      column => column.propertyName !== locale
     );
 
     this.setState({ columns });

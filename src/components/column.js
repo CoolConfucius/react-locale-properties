@@ -23,6 +23,7 @@ export default class Column extends React.Component {
       <div className="col-md-3 col-xs-6">
         <h4>{this.props.propertyName}</h4>  
         {propertyLocales}
+        <br />
         <div className="btn btn-small btn-danger" onClick={this._handleDelete}>
           <span className="glyphicon glyphicon-trash"></span>
         </div>
@@ -33,9 +34,15 @@ export default class Column extends React.Component {
   _propertyLocales(){
     console.log(this.props, "props");
     let propertyLocalesMap = this.props.propertyLocales.map((columnLocale)=>
-      <p className="delimiter" key={columnLocale.locale}>
-        {columnLocale.locale} : {columnLocale.delimiter}
-      </p>
+      <div key={columnLocale.locale}>
+        <br />
+        <p className="delimiter">
+          {columnLocale.locale} : {columnLocale.delimiter}
+        </p>        
+        <div className="btn btn-xs btn-warning" onClick={this._handleDedupe}>
+          Dedupe
+        </div>
+      </div>
     );
     return (
       <div>
@@ -49,6 +56,13 @@ export default class Column extends React.Component {
     event.preventDefault();
 
     this.props.onDelete(this.props.propertyName);
+  }
+
+  _handleDepupe(event) {
+    console.log("props", this.props);
+    event.preventDefault();
+
+    // this.props.onDedupe(this.props.propertyName);
   }
 
 }
