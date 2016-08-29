@@ -34,7 +34,7 @@ export default class Page extends React.Component {
     let toggleDisplayText = this.state.displayOutput ? 'Hide Data' : 'Show All Available Data';
     return(
       <div className="page container">
-        Locale Props        
+        <h1 className="jumbotron">Locale Properties</h1>      
         <SearchBar addColumn={this._addColumn}/>
         <div className="row">
           {columnNodes}
@@ -75,9 +75,17 @@ export default class Page extends React.Component {
       propertyLocales: this._getColumnLocales(property)
     };
 
-    this.setState({
-      columns: this.state.columns.concat([column])
-    }, ()=>{console.log(this.state, "update columns");});
+    if (column.propertyLocales.length === 0) {
+      alert("No locales in the data has that property name.")
+    } else {
+      this.setState({
+        columns: this.state.columns.concat([column])
+      }, ()=>{
+        console.log(this.state, "update columns");
+      });
+    }
+
+
     
   }
 
