@@ -28,11 +28,16 @@ export default class Column extends React.Component {
 
   _propertyLocales(){
     console.log(this.props, "props");
-    return this.props.propertyLocales.map((columnLocale)=>{
-      <div className="delimiter" key={columnLocale.locale}>
-          <p>{columnLocale.locale} : {columnLocale.delimiter}</p>
+    let propertyLocalesMap = this.props.propertyLocales.map((columnLocale)=>
+      <p className="delimiter" key={columnLocale.locale}>
+        {columnLocale.locale} : {columnLocale.delimiter}
+      </p>
+    );
+    return (
+      <div>
+        {propertyLocalesMap}
       </div>
-    });
+    );
   }
 
 }
