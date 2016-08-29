@@ -19,7 +19,7 @@ export default class Column extends React.Component {
     const propertyLocales = this._propertyLocales();
     
     return(
-      <div className="locale">
+      <div className="col-md-3 col-xs-6">
         <h4>{this.props.propertyName}</h4>  
         {propertyLocales}
       </div>

@@ -39,7 +39,9 @@ export default class Page extends React.Component {
           <div className="btn btn-danger col-md-4">Delete column</div>
         </div>
         <SearchBar addColumn={this._addColumn}/>
-        {columnNodes}
+        <div className="row">
+          {columnNodes}
+        </div>
 
         <br />
         <div className="btn btn-info btn-sm" onClick={this._toggleDisplay}>{toggleDisplayText}</div>
@@ -88,7 +90,7 @@ export default class Page extends React.Component {
       return <Column
                {...column}
                onDelete={this._deleteColumn}
-               key={column.locale || ''} />
+               key={column.propertyName || ''} />
     });
   }
 
