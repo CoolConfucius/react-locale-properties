@@ -67,9 +67,12 @@ export default class Column extends React.Component {
       propertyLocale => propertyLocale.delimiter === delimiter
     );
   
-
     this.setState({ propertyLocales: deduped });
     
+  }
+
+  _undedupe{
+    this.setState({ propertyLocales: this.props.propertyLocales});
   }
 
 }

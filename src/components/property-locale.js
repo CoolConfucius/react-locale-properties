@@ -5,12 +5,16 @@ export default class PropertyLocale extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      isDeduped: false
+    };
 
     this._handleDedupe = this._handleDedupe.bind(this);
   }
 
   render() {
+    let dedupeButton = this.state.isDeduped ? 
+
     return(
       <div>
         <br />
@@ -28,6 +32,14 @@ export default class PropertyLocale extends React.Component {
 
   _handleDedupe(event) {
     event.preventDefault();
-    this.props.onDedupe(this.props.delimiter);
+    if (this.state.isDedupe) {
+      this.props.onUndedupe();
+    } else {
+      this.props.onDedupe(this.props.delimiter);
+    }
+
+    this.setState({
+      isDedupe: !this.state.isDedupe
+    })
   }
 }
