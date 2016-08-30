@@ -12,6 +12,7 @@ export default class Column extends React.Component {
     this._getPropertyLocales = this._getPropertyLocales.bind(this);
     this._handleDelete = this._handleDelete.bind(this);
     this._dedupe = this._dedupe.bind(this);
+    this._undedupe = this._undedupe.bind(this);
   }
 
   componentWillMount(){
@@ -42,6 +43,7 @@ export default class Column extends React.Component {
         locale={columnLocale.locale} 
         delimiter={columnLocale.delimiter} 
         onDedupe={this._dedupe}
+        onUndedupe={this._undedupe}
         key={columnLocale.locale} />      
     );
     return (
@@ -71,7 +73,7 @@ export default class Column extends React.Component {
     
   }
 
-  _undedupe{
+  _undedupe(){
     this.setState({ propertyLocales: this.props.propertyLocales});
   }
 

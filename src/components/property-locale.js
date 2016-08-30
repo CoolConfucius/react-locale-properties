@@ -13,7 +13,7 @@ export default class PropertyLocale extends React.Component {
   }
 
   render() {
-    let dedupeButton = this.state.isDeduped ? 
+    let dedupeText = this.state.isDeduped ? "Undedupe" : "Dedupe";
 
     return(
       <div>
@@ -23,7 +23,7 @@ export default class PropertyLocale extends React.Component {
         </p>        
         <div  className="btn btn-xs btn-warning" 
               onClick={this._handleDedupe}>
-          Dedupe
+          {dedupeText}
         </div>
       </div>
     );
@@ -32,14 +32,15 @@ export default class PropertyLocale extends React.Component {
 
   _handleDedupe(event) {
     event.preventDefault();
+
     if (this.state.isDedupe) {
+      this.setState({isDedupe: false});
       this.props.onUndedupe();
     } else {
+      this.setState({isDedupe: true});
       this.props.onDedupe(this.props.delimiter);
     }
 
-    this.setState({
-      isDedupe: !this.state.isDedupe
-    })
+    
   }
 }
