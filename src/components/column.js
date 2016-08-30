@@ -9,9 +9,9 @@ export default class Column extends React.Component {
       propertyLocales: []
     };
 
-    this._propertyLocales = this._propertyLocales.bind(this);
+    this._getPropertyLocales = this._getPropertyLocales.bind(this);
     this._handleDelete = this._handleDelete.bind(this);
-    // this._dedupe = this._dedupe.bind(this);
+    this._dedupe = this._dedupe.bind(this);
   }
 
   componentWillMount(){
@@ -20,7 +20,7 @@ export default class Column extends React.Component {
 
   render() {
     console.log("props", this.props);
-    const propertyLocales = this._propertyLocales();
+    const propertyLocales = this._getPropertyLocales();
     
     return(
       <div className="col-md-3 col-xs-6">
@@ -35,25 +35,14 @@ export default class Column extends React.Component {
   }
 
 
-  _propertyLocales(){
+  _getPropertyLocales(){
     console.log(this.props, "props");
     let propertyLocalesMap = this.state.propertyLocales.map((columnLocale)=>
       <PropertyLocale 
         locale={columnLocale.locale} 
         delimiter={columnLocale.delimiter} 
-        key={columnLocale.locale} />
-
-
-      <div key={columnLocale.locale}>
-        <br />
-        <p className="delimiter">
-          {columnLocale.locale} : {columnLocale.delimiter}
-        </p>        
-        <div  className="btn btn-xs btn-warning" 
-              onClick={(delimiter)=>this._dedupe(delimiter)}>
-          Dedupe
-        </div>
-      </div>
+        onDedupe={this._dedupe}
+        key={columnLocale.locale} />      
     );
     return (
       <div>

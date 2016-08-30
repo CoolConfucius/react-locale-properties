@@ -32,13 +32,9 @@ export default class PropertyLocale extends React.Component {
     );
   }
 
-  _toggleAbuse() {
-    this.setState({
-      isAbusive: !this.state.isAbusive
-    });
-  }
 
-  _handleDedupe() {
+  _handleDedupe(event) {
+    event.preventDefault();
     this.props.onDedupe(this.props.id);
   }
 }
