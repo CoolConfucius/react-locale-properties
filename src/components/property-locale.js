@@ -18,7 +18,7 @@ export default class PropertyLocale extends React.Component {
           {this.props.locale} : {this.props.delimiter}
         </p>        
         <div  className="btn btn-xs btn-warning" 
-              onClick={(delimiter)=>this._dedupe(delimiter)}>
+              onClick={this._handleDedupe}>
           Dedupe
         </div>
       </div>
