@@ -11,18 +11,11 @@ export default class PropertyLocale extends React.Component {
   }
 
   render() {
-
-    let propertyLocaleName this.props.locale;
-    let delimiter this.props.delimiter;
-
-
     return(
-
-
-      <div key={columnLocale.locale}>
+      <div key={this.props.key}>
         <br />
         <p className="delimiter">
-          {columnLocale.locale} : {columnLocale.delimiter}
+          {this.props.locale} : {this.props.delimiter}
         </p>        
         <div  className="btn btn-xs btn-warning" 
               onClick={(delimiter)=>this._dedupe(delimiter)}>
