@@ -7,7 +7,7 @@ export default class Column extends React.Component {
     super();
     this.state = {
       propertyLocales: [],
-      isDeduped: false
+      isDedupe: false
     };
 
     this._getPropertyLocales = this._getPropertyLocales.bind(this);
@@ -23,12 +23,21 @@ export default class Column extends React.Component {
   render() {
     console.log("props", this.props);
     const propertyLocales = this._getPropertyLocales();
-    
+    let undedupeButton; 
+    if (this.state.isDedupe) {
+      undedupeButton =         
+      <div  className="btn btn-sm btn-warning" 
+            onClick={this._undedupe}>
+        Undedupe    
+      </div>
+    };
+
     return(
       <div className="col-md-3 col-xs-6">
         <h4>{this.props.propertyName}</h4>  
         {propertyLocales}
         <br />
+        {undedupeButton}
         <div className="btn btn-small btn-danger" onClick={this._handleDelete}>
           <span className="glyphicon glyphicon-trash"></span>
         </div>
@@ -43,7 +52,7 @@ export default class Column extends React.Component {
       <PropertyLocale 
         locale={columnLocale.locale} 
         delimiter={columnLocale.delimiter} 
-        isDedupe={this.state.isDeduped}
+        isDedupe={this.state.isDedupe}
         onDedupe={this._dedupe}
         onUndedupe={this._undedupe}
         key={columnLocale.locale} />      
@@ -71,12 +80,12 @@ export default class Column extends React.Component {
       propertyLocale => propertyLocale.delimiter === delimiter
     );
   
-    this.setState({ propertyLocales: deduped, isDeduped: true });
+    this.setState({ propertyLocales: deduped, isDedupe: true });
     
   }
 
   _undedupe(){
-    this.setState({ propertyLocales: this.props.propertyLocales, isDeduped: false});
+    this.setState({ propertyLocales: this.props.propertyLocales, isDedupe: false});
   }
 
 }
