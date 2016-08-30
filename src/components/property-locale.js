@@ -21,7 +21,6 @@ export default class PropertyLocale extends React.Component {
         Dedupe    
       </div>
     };
-     = this.props.isDedupe ? "Undedupe" : "Dedupe";
 
     return(
       <div>
