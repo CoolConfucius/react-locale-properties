@@ -6,7 +6,8 @@ export default class Column extends React.Component {
   constructor() {
     super();
     this.state = {
-      propertyLocales: []
+      propertyLocales: [],
+      isDeduped: false
     };
 
     this._getPropertyLocales = this._getPropertyLocales.bind(this);
@@ -42,7 +43,7 @@ export default class Column extends React.Component {
       <PropertyLocale 
         locale={columnLocale.locale} 
         delimiter={columnLocale.delimiter} 
-        isDedupe={false}
+        isDedupe={this.state.isDeduped}
         onDedupe={this._dedupe}
         onUndedupe={this._undedupe}
         key={columnLocale.locale} />      
@@ -70,12 +71,12 @@ export default class Column extends React.Component {
       propertyLocale => propertyLocale.delimiter === delimiter
     );
   
-    this.setState({ propertyLocales: deduped });
+    this.setState({ propertyLocales: deduped, isDeduped: true });
     
   }
 
   _undedupe(){
-    this.setState({ propertyLocales: this.props.propertyLocales});
+    this.setState({ propertyLocales: this.props.propertyLocales, isDeduped: false});
   }
 
 }
