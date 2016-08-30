@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropertyLocale from "./property-locale";
+
 export default class Column extends React.Component {
   constructor() {
     super();
@@ -36,6 +38,12 @@ export default class Column extends React.Component {
   _propertyLocales(){
     console.log(this.props, "props");
     let propertyLocalesMap = this.state.propertyLocales.map((columnLocale)=>
+      <PropertyLocale 
+        locale={columnLocale.locale} 
+        delimiter={columnLocale.delimiter} 
+        key={columnLocale.locale} />
+
+
       <div key={columnLocale.locale}>
         <br />
         <p className="delimiter">
