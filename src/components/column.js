@@ -21,7 +21,6 @@ export default class Column extends React.Component {
   }
 
   render() {
-    console.log("props", this.props);
     const propertyLocales = this._getPropertyLocales();
     let undedupeButton; 
     if (this.state.isDedupe) {
@@ -46,8 +45,7 @@ export default class Column extends React.Component {
   }
 
 
-  _getPropertyLocales(){
-    console.log(this.props, "props");
+  _getPropertyLocales(){    
     let propertyLocalesMap = this.state.propertyLocales.map((columnLocale)=>
       <PropertyLocale 
         locale={columnLocale.locale} 
@@ -64,8 +62,7 @@ export default class Column extends React.Component {
     );
   }
 
-  _handleDelete(event) {
-    console.log("props", this.props);
+  _handleDelete(event) {    
     event.preventDefault();
 
     this.props.onDelete(this.props.propertyName);
@@ -73,8 +70,7 @@ export default class Column extends React.Component {
 
 
   
-  _dedupe(delimiter) {
-    console.log("This props", this.props, delimiter);
+  _dedupe(delimiter) {    
 
     const deduped = this.state.propertyLocales.filter(
       propertyLocale => propertyLocale.delimiter === delimiter

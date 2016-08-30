@@ -10,10 +10,6 @@ export default class Locale extends React.Component {
     this._delimiters = this._delimiters.bind(this);
   }
 
-  // componentWillMount(){
-  //   console.log(this.state);
-  // }
-
   render() {
     const delimiters = this._delimiters();
     

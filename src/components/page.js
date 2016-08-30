@@ -47,9 +47,6 @@ export default class Page extends React.Component {
     )
   }
 
-  componentDidMount() {
-    console.log(this.state);
-  }
 
   _toggleDisplay(){
     this.setState({ displayOutput: !this.state.displayOutput});
@@ -80,8 +77,6 @@ export default class Page extends React.Component {
     } else {
       this.setState({
         columns: this.state.columns.concat([column])
-      }, ()=>{
-        console.log(this.state, "update columns");
       });
     }
 
@@ -124,8 +119,7 @@ export default class Page extends React.Component {
       method: 'GET',
       url: 'locales.json',
       success: (locales) => {
-        this.setState({ locales });
-        console.log(this.state);
+        this.setState({ locales });        
       }
     });
   }
