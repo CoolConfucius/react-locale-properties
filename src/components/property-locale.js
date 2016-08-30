@@ -28,6 +28,6 @@ export default class PropertyLocale extends React.Component {
 
   _handleDedupe(event) {
     event.preventDefault();
-    this.props.onDedupe(this.props.id);
+    this.props.onDedupe(this.props.delimiter);
   }
 }
