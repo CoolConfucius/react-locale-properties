@@ -33,7 +33,7 @@ export default class PropertyLocale extends React.Component {
   _handleDedupe(event) {
     event.preventDefault();
 
-    if (this.state.isDedupe) {
+    if (this.props.isDedupe) {
       this.setState({isDedupe: false});
       this.props.onUndedupe();
     } else {

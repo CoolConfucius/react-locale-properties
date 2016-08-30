@@ -42,6 +42,7 @@ export default class Column extends React.Component {
       <PropertyLocale 
         locale={columnLocale.locale} 
         delimiter={columnLocale.delimiter} 
+        isDedupe={false}
         onDedupe={this._dedupe}
         onUndedupe={this._undedupe}
         key={columnLocale.locale} />      
