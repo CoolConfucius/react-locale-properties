@@ -12,7 +12,7 @@ export default class PropertyLocale extends React.Component {
 
   render() {
     return(
-      <div key={this.props.key}>
+      <div>
         <br />
         <p className="delimiter">
           {this.props.locale} : {this.props.delimiter}
