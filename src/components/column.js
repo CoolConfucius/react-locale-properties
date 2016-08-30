@@ -64,7 +64,7 @@ export default class Column extends React.Component {
     console.log("This props", this.props, delimiter);
 
     const deduped = this.state.propertyLocales.filter(
-      propertyLocale => propertyLocale.delimiter !== delimiter
+      propertyLocale => propertyLocale.delimiter === delimiter
     );
   
 
